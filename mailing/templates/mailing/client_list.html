@@ -1,0 +1,23 @@
+{% extends 'mailing/base.html' %}
+
+{% block content %}
+
+  {% for object in object_list%}
+    <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+            <h4 class="my-0 fw-normal">Клиент №  {{object.id}}</h4>
+          </div>
+          <div class="card-body">
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>ФИО: {{object.full_name}}</li>
+              <li>Контактный email: {{object.email}}</li>
+            </ul>
+            <a type="button" class="w-100 btn btn-sm btn-outline-success" href="{% url 'mailing:client_detail' object.pk%}">Подробнее</a>
+            <a type="button" class="w-100 btn btn-sm btn-outline-warning" href="{% url 'mailing:client_update' object.pk%}">Редактировать</a>
+            <a type="button" class="w-100 btn btn-sm btn-outline-danger" href="{% url 'mailing:client_confirm_delete' object.pk%}">Удалить</a>
+          </div>
+        </div>
+      </div>
+  {% endfor%}
+{% endblock %}

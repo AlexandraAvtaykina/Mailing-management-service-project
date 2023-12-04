@@ -1,0 +1,29 @@
+{% extends 'mailing/base.html' %}
+
+{% block content %}
+  {% for object in object_list%}
+      <div class="col">
+          <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+              <h4 class="my-0 fw-normal">Рассылка №  {{object.id}}</h4>
+            </div>
+            <div class="card-body">
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>{{object.start_time}} - {{object.end_time}}</li>
+                <li>----------------------------</li>
+                <li>Периодичность: {{object.period}}</li>
+              </ul>
+              {% if user.is_authenticated %}
+                <button type="button" class="w-100 btn btn-sm btn-outline-success">Запустить рассылку</button>
+                <a href="{% url 'mailing:off' object.pk%}" class="w-100 btn btn-sm btn-outline-warning">Остановить рассылку</a>
+                <a href="{% url 'mailing:mailing_detail' object.pk%}" class="w-100 btn btn-sm btn-outline-info">Просмотр рассылки</a>
+                <a href="{% url 'mailing:mailing_update' object.pk%}" class="w-100 btn btn-sm btn-outline-primary">Редактировать рассылку</a>
+                <a href="{% url 'mailing:mailing_confirm_delete' object.pk%}" class="w-100 btn btn-sm btn-outline-danger">Удалить рассылку</a>
+              {% else %}
+                <a href="{% url 'mailing:mailing_detail' object.pk%}" class="w-100 btn btn-sm btn-outline-info">Просмотр рассылки</a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+  {% endfor%}
+{% endblock %}

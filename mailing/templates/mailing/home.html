@@ -1,0 +1,85 @@
+{% extends 'mailing/base.html' %}
+
+{% block home %}
+<div class="container">
+  <div class="row">
+    <div class="col-10">
+      <p>Всего рассылок: {{mailing_count}}
+        из них активных: {{mailing_active}}
+        Активных клиентов: {{clients_count}}</p>
+    </div>
+  </div>
+  <div class="row text-center">
+    <div class="col-12">
+      <h2 class="display-6 text-center mb-4">Почему мы?</h2>
+
+        <div class="table-responsive">
+          <table class="table text-center">
+            <thead>
+              <tr>
+                <th style="width: 34%;"></th>
+                <th style="width: 22%;">Бесплатно</th>
+                <th style="width: 22%;">Премиум</th>
+                <th style="width: 22%;">Всё</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" class="text-start">Создание рассылок</th>
+                <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+                <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+                <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+              </tr>
+              <tr>
+                <th scope="row" class="text-start">Анонимность</th>
+                <td></td>
+                <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+                <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+              </tr>
+            </tbody>
+
+            <tbody>
+              <tr>
+                <th scope="row" class="text-start">Отправка рассылок</th>
+                <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+                <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+                <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+              </tr>
+              <tr>
+                <th scope="row" class="text-start">Контроль рассылок</th>
+                <td></td>
+                <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+                <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+              </tr>
+              <tr>
+                <th scope="row" class="text-start">Удаление рассылок</th>
+                <td></td>
+                <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+                <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+              </tr>
+              <tr>
+                <th scope="row" class="text-start">Отчет по рассылкам</th>
+                <td></td>
+                <td></td>
+                <td><svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+  </div>
+  <div class="row text-center">
+    <div class="col-12">
+      {% for blog in blogs %}
+        <div class="card">
+            <div class="card-body">
+                <h2>{{blog.title}}
+                </h2>
+                <p>{{blog.body}} </p>
+            </div>
+        </div>
+      {% endfor%}
+    </div>
+  </div>
+</div>
+{% endblock%}

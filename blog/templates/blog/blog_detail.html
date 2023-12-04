@@ -1,0 +1,25 @@
+{% extends 'mailing/base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row text-center">
+        <div class="col-12">
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <h4 class="my-3 font-weight-normal">{{ object.title }}</h4>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled ">
+                        <img src="{{ object.image }}" style="width: 80%;"/>
+                        <li> ____________________________ </li>
+                        <li> {{object.body}} </li>
+                        <li> ____________________________ </li>
+                        <li> Просмотры: {{ object.views_count }} </li>
+                    </ul>
+                    <a href="{% url 'blog:blog_list' %}" class="p-2 btn btn-outline-primary">Назад</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

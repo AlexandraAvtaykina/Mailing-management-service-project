@@ -1,0 +1,33 @@
+{% extends 'mailing/base.html' %}
+
+{% block content %}
+<title>Статистика рассылок</title>
+<body>
+    <div class="container">
+        <h1>Отчет по рассылкам</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Рассылка</th>
+                    <th>Дата и время попытки</th>
+                    <th>Статус попытки</th>
+                    <th>Ответ сервера</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for object in object_list %}
+                    <tr>
+                        <td>{{ object.mailing }}</td>
+                        <td>{{ object.datetime_of_last_attempt }}</td>
+                        <td>{{ object.status }}</td>
+                        <td>{{ object.error_msg }}</td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="4">Нет данных для отображения.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

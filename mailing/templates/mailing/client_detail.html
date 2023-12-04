@@ -1,0 +1,20 @@
+{% extends 'mailing/base.html' %}
+
+{% block content %}
+    <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+            <h4 class="my-0 fw-normal">Информация по клиенту</h4>
+          </div>
+          <div class="card-body">
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>ФИО: {{object.full_name}}</li>
+              <li>Контактный email: {{object.email}}</li>
+              <li>Комментарий: {{object.comment}}</li>
+              <li>Владелец: {{object.owner}}</li>
+            </ul>
+            <a href="{% url 'mailing:client_list' %}" class="w-100 btn btn-sm btn-outline-danger">Назад</a>
+          </div>
+        </div>
+      </div>
+{% endblock %}
