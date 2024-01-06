@@ -1,1 +1,1 @@
-# Mailing-management-service-project
+# Проект email рассылок
